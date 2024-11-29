@@ -1,0 +1,79 @@
+FIT9131 Assignment A: Java Connections
+Introduction
+This assignment is due by 11:55pm AEST on Friday of Week 7 (6th September, 2024). In addition, there is a requirement that you show your work to your tutor in your Applied classes in weeks 5 and 6.
+The assignment is worth 10% of the marks for your final assessment in this unit. Heavy penalties will apply for late submission. This is an individual assignment and must be your own work. You must attribute the source of any part of your code which you have not written yourself. Please note the section on plagiarism in this document. 
+You must not use generative artificial intelligence (AI) to generate any materials or content in relation to any assessment task in this unit.
+The assignment must be done using the Assignment A workspace environment on the Ed platform (opposite). All code for the assignment must be written in this workspace and not cut and pasted from another place.
+The Java source code for this assignment must be implemented according to the FIT9131 Coding Standards (see Lesson 3.4). 
+Any points needing clarification may be discussed with your tutor in the applied learning classes.
+Completion of this assignment contributes towards the following FIT9131 learning outcomes:
+1. Design and construct Java programs according to standard object-oriented principles.
+2. Apply and demonstrate debugging processes to Java applications.
+3. Develop strategies for efficient and effective program testing.
+4. Document code according to specific programming standards.
+Specification
+For this assignment, you will write a program for a person to play a word game called Java Connections. This section specifies the required functionality of the program. Only a text interface is required for this program; however, more marks will be gained for a game that is easy to follow with clear information/error messages to the player.
+The aim of Java Connections is for a player to correctly identify 4 groups of 3  words (or symbols) that have a connecting theme in Java or computing.  For example, private, protected, public are access modifiers and <=, >=, == are relational operators.  The player will enter 3 words for each attempt to find connected words.  If the three words are connected then the player tries to identify another three words that are connected. The game continues until the player has correctly guessed all the connections or they have run out of attempts.  Players will be allowed one unsuccessful attempt before the game ends. 
+The player may play a series of games. At the end of each game the player is awarded a score according to the number of attempts they have taken to guess the connections and the unsuccessful attempts they have made. At the end of the series of games the player is shown their maximum game score.
+To help you with this assignment we have made available a WordGroup class with three static methods that you can use to get the connecting themes and word groups, and for checking connections.   
+The Java Connections game is based on the New York Times game Connections.  You can play this game to give you an idea of how the Java Connections game will be played.
+Rules of the Java Connections game
+1. The Java Connections game begins with a message inviting the player to enter their name. The name must begin with an alphabetic character and must be from 4 to 8 characters in length. If the player enters an invalid name then a warning message is displayed and the player is invited to enter another name. 
+2. The themes that will be used in the game are displayed on the screen.  To get the names of all the themes use the getThemes() static method in the WordGroup class. This method will return an array of Strings.
+3. A set of 12 words (or symbols) is displayed on the screen in a 4 x 3 grid.  To get the 12 words, use the generateGroup() static method in the  WordGroup class. This method will return an array of 12 Strings, consisting of 4 groups of 3 words connected by some theme. The words will be randomly placed in the array and therefore when the grid is displayed, the connections will not be shown to the player.  
+4.  A maximum of  5 attempts is allowed to identify the connections , i.e., one unsuccessful attempt is allowed.
+5. The player is then invited to enter three words from the grid that they consider are connected by some theme. If the player enters a word that is not in the grid, then a warning message is displayed and they are invited to re-enter the word. This will not count as an attempt.
+6. If the 3 words entered are contained in the grid then a check is made to see if they are connected. To do this you can use the checkConnections(String[]) static method in the WordGroup class. This method is passed an array of 3 words and returns the connecting theme as a String. If the words are not connected then the theme is "no connection".   
+7. If the 3 words are connected then the connecting theme is displayed on the screen. If there are remaining words, then they are displayed on the screen in a smaller grid and the game continues.  If there are no remaining words, the game ends.
+8. If the 3 words are not connected then message is displayed. If the player has not had a previous unsuccessful attempt, the game continues, otherwise, the game ends. 
+9. At the end of the game the game score is displayed to the player. The game score is calculated as follows:
+          game score = (number of correct attempts * 2) - number of unsuccessful attempts
+10. The player is then invited to play another game.
+11. If the player decides to not continue with another game then their highest game score is displayed.
+Program design
+Your program should consist of at least three classes: Player, Connections, and Grid The following sections give details of these classes.
+Player class
+The Player class will specify the attributes and behaviours of a player. An object of the Player class will have at least the following fields:
+Name – the name of the player
+Score – the highest game score 
+The data type of each field must be chosen carefully and you must be able to justify the choice of the data type of the fields. You may want to include comments in the class to state any assumptions made. The class must also have a default constructor, a non-default constructor that accepts a value for the name of the player.
+The Player class should also have appropriate accessor and mutator methods for its fields. Validation of values for fields should also be implemented. You should not allow an object of class Player to be set to an invalid state. There should be no input from the terminal or output to the screen via methods from the Player class. A Player object should also be able to return its state in the form of a String.
+Connections class
+The Connections class will manage the playing of a the game. It will have the following fields (at least):
+Player - an object of type Player
+Grid - an object of type Grid 
+The Connections class will have methods to manage the playing of the game. These should include the main() method to start the program and methods for the following behaviours (at least): 
+Display a welcome message on the screen.
+Request the player to enter their name.
+Request the player to enter 3 connected words
+Check if words are connected
+Display the result of an attempt at finding three connected words
+Display the game score at the end the game.
+Display the highest game score
+Grid class
+An object of the Grid class will contain an array of Strings.  The Grid class will have methods for the following behaviours (at least):
+display the grid in an n times 3 pattern. Where n is the number of word groups. 
+Assessment
+The marks will be allocated as follows:
+20% - Progress of code development, as shown via Ed workspace environment. Your tutor will assess your work during your applied session in weeks 5 and 6. 
+10% in week 5 for a complete Player class and class diagram (this can be hand-drawn). Note that the class diagram should show the individual classes and the interactions between the classes but does not need to include the details within the classes.
+10% in week 6 for completing rules 1 to 5  and a complete class diagram showing the interactions between the classes and the internal details. Please note you must upload your class diagram to the file area of your Assignment A workspace.
+20% -  Java code quality and object-oriented design quality. This will be assessed on code quality (e.g. compliance with coding standards) appropriate design and implementation of classes, fields, constructors, methods, and validation of the object’s state.
+60% - Program functionality in accordance to the requirements.
+Please note the following:
+You must use the Assignment A workspace environment in the Ed platform to code all parts of your program. You must not copy and paste huge chunks of code from somewhere else.  There will be a deduction of up to 20% if this is not complied with.
+You must ensure that your program code meets the coding standard requirements outlined in FIT9131 Coding Standards (see Lesson 3.4). 
+You must submit your work by the submission deadline on the due date (a late penalty of 5% per day, inclusive of weekends, of the possible marks will apply). There will be no extensions - so start working on it early!
+Submission Requirements
+The assignment must be submitted by 11:55pm AEST on Friday of Week 7 (6th September, 2024).
+The submission requirements for Assignment A are as follows:
+The main class in your program MUST be called Connections.java and it should contain the main() method to start the program.
+Submit your work via the Ed platform, using the workspace area next to this assignment specification.
+Re-submissions are allowed before the submission deadline, and are encouraged. You should submit your progress as you go. However, please ensure that you do not click on the submit button after the due date. The last submission will be used for grading purposes and a submission after the deadline will incur a late penalty.
+A signed Assignment Cover Sheet. [Note: You are required to download the Assignment Coversheet, sign the document and upload the pdf file in the Ed platform (you may drag and drop to the Toggle Pane)]
+Marks will be deducted for any of these requirements that are not complied with.
+Warning: there will be no extensions to the due date. Any late submission will incur a 5% per day penalty. It is strongly suggested that you submit the assignment well before the deadline, in case there are some unexpected complications on the day (e.g. interruptions to your home internet connection).
+Plagiarism
+Plagiarism and collusion are viewed as serious offences. All submitted code will be subjected to a similarity checker, and any submissions determined to be similar to a submission from a current or past student will be investigated further. The outcome of the decision pertaining to plagiarism and/or collusion will be determined by the faculty administration. To ensure compliance with this requirement, be sure to do all your coding in the Ed workspace environment and do not copy and paste any code into the workspace environment. 
+In cases where plagiarism or collusion has been confirmed, students have been severely penalised, ranging from losing all marks for an assignment, to facing disciplinary action at the Faculty level. Monash has several policies in relation to these offences and it is your responsibility to acquaint yourself with these. 
+Assessment and Academic Integrity Policies and Procedures (https://www.monash.edu/learning-teaching/priorities-and-programs/assessment-and-academic-integrity/assessments-and-integrity-policy-and-procedure)
