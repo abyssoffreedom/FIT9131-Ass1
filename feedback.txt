@@ -1,0 +1,4 @@
+	
+View summary
+Overall a good assignment. Be sure to follow the assignment rules more closely in later assignments, as use of arrayList was not allowed for assignment A.
+graded by Jason Free
